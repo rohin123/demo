@@ -1,0 +1,22 @@
+@import './base.scss';
+@import './main.scss';
+
+.select-option-div{
+	display: inline-block;
+    padding: 5px;
+    margin: 5px;
+    background: #c3c3c3;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.red-option{
+	background-color: #a53d3d;
+	color: white;
+}
+
+.green-option{
+	background-color: #40a010;
+	color: white;
+}

@@ -1,0 +1,43 @@
+@import './base.scss';
+@import './main.scss';
+
+.top-bar{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+	padding: 10px;
+	@include box-shadow(1px 1px 9px 2px #c3c3c3);
+    background-color: white;
+    box-sizing:border-box;
+	.search-box{
+		display: inline-block;
+		position: relative;
+		width: 50%;
+	    max-width: 500px;
+	    min-width: 250px;
+	    .label{
+	    	position: absolute;
+	    	font-weight: 300;
+	    	@include transition(all 0.4s);
+	    }
+
+	    .label-down{
+	    	top:10px;
+	    	font-size: 1.4rem;
+	    }
+
+	    .label-up{
+	    	top:-4px;
+	    	font-size: 0.9rem;
+	    }
+	}
+	.top-bar-buttons{
+		display: inline-block;
+	    text-align: right;
+	    width: 50%;
+	    .add-user-button{
+	    	padding:8px;
+	    }
+	}
+}

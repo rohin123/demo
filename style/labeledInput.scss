@@ -1,0 +1,43 @@
+@import './base.scss';
+@import './main.scss';
+
+.labeled-input-div{
+	display: inline-block;
+    position: relative;
+    padding: 10px 0;
+    margin: 10px 20px 10px 10px;
+    text-align: left;
+	.label{
+		position: absolute;
+		@include transition(all 0.4s);
+		font-weight: 400;
+	}
+
+	.label-up{
+		top: -10px;
+		font-size: 0.8rem;
+	}
+
+	.label-down{
+		top: 0px;
+		font-size: 1.1rem;
+	}
+
+	.input-div{
+		input{
+			font-size: 1rem;
+			border: none;
+			border-bottom: 1px solid #c3c3c3;
+			outline: none;
+			position: relative;
+			background-color: transparent;
+		}
+		span{
+			position: absolute;
+		    left: 0;
+		    bottom: -4px;
+		    font-size: 0.7rem;
+		    color: red;
+		}
+	}
+}
