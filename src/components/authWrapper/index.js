@@ -31,8 +31,9 @@ export default function authWrapper(WrappedComponent,rest) {
 
     render(){
       let state = store.getState(),
-          authState = state.authState
-      if(authState==AppData.authStates.AUTHENTICATED){
+          authState = state.authState;
+
+      if(authState == AppData.authStates.AUTHENTICATED){
         return <Route path={this.props.location.pathname} component={WrappedComponent}/>
       }else if(authState==AppData.authStates.NOT_AUTHORIZED){
         return <Redirect to={{pathname:'/login'}}/>

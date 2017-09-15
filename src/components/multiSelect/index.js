@@ -32,7 +32,6 @@ const MultiSelect = React.createClass({
 		this.optionsMap[option] = !this.optionsMap[option]
 	},
 	applyChanges:function(){
-		//debugger
 		this.props.changeHandler(this.optionsMap)
 	},
 	cancelChanges:function(){

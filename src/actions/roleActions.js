@@ -10,10 +10,6 @@ class RoleActions{
 		return (dispatch)=>{
 			AjaxWrapper.get({
 				url:Constants.rolesInOrgApi.replace(/:organization_id/,Constants.orgId),
-				beforeSendCall:(xhr)=>{
-					xhr.setRequestHeader('key',Constants.appkey)
-					xhr.setRequestHeader('token',state.userinfo&&state.userinfo.token)
-				},
 				callback:(roles)=>{
 					dispatch(this.setRoles(roles))
 				},

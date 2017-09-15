@@ -8,7 +8,6 @@ var env = process.env.NODE_ENV;
 switch(env){
 	case "production":
 		port = 80;
-		isProd = true;
 		break;
 
 	case "development":
