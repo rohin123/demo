@@ -17,7 +17,7 @@ class AjaxWrapper{
 				}
 				beforeSendCall(xhr);
 				xhr.setRequestHeader('key',Constants.appkey);
-				xhr.setRequestHeader('token', state.userinfo && state.userinfo.token);
+				xhr.setRequestHeader('token', options.token || (state.userinfo && state.userinfo.token));
 			}
 
 		}).fail(function(err){
@@ -48,9 +48,9 @@ class AjaxWrapper{
 				if(showLoader==true){
 					store.dispatch(LoaderActions.showLoader())
 				}
-				beforeSendCall(xhr)
+				//beforeSendCall(xhr)
 				xhr.setRequestHeader('key',Constants.appkey);
-				xhr.setRequestHeader('token', state.userinfo && state.userinfo.token);
+				xhr.setRequestHeader('token',state.userinfo && state.userinfo.token);
 			}
 		}).fail(function(err){
 			if(err){

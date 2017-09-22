@@ -1,7 +1,7 @@
 import AjaxWrapper from '../helpers/ajaxWrapper.js'
 import Promise from 'promise'
 import Constants from '../utils/constants.js'
-import StorageHelper from '../helpers/StorageHelper.js'
+import StorageHelper from '../helpers/storageHelper.js'
 import store from '../store'
 import AppData from '../utils/appData.js'
 import LoginActions from '../actions/loginActions.js'
@@ -9,13 +9,10 @@ import LoginActions from '../actions/loginActions.js'
 class LoginService{
 
 	tokenAuthentication(token){
+		console.log('tokenAuthentication==>',token)
 		let promiseFunc = (resolve,reject)=>{
 			AjaxWrapper.get({
 				url:Constants.loginUrl,
-				beforeSendCall:function(xhr){
-					xhr.setRequestHeader('token',token)
-					xhr.setRequestHeader('key',Constants.appkey)
-				},
 				callback:function(user){
 					resolve(user)
 				},
@@ -23,7 +20,8 @@ class LoginService{
 					reject()
 				},
 				options:{
-					showLoader:true
+					showLoader:true,
+					token:token
 				}
 			})
 		}
@@ -36,9 +34,10 @@ class LoginService{
 		let promiseFunc = (resolve,reject)=>{
 			let appState = store.getState()
 			if(appState&&appState.userinfo&&appState.userinfo.token){
-				resolve()	
+				resolve(appState.userinfo)	
 			}else{
 				let token = StorageHelper.getItem(AppData.tokenStorageKey)||null
+				console.log('checkIfLoggedIn-->',token)
 				if(token){
 					this.tokenAuthentication(token).then((user)=>{
 						resolve(user)

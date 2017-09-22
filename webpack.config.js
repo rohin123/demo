@@ -91,6 +91,9 @@ module.exports = {
             }
         ],
     },
+    devServer:{
+        historyApiFallback:true
+    },
     plugins: [
       new ExtractTextPlugin('main.css',{allChunks:true}),
       new webpack.optimize.DedupePlugin(),
