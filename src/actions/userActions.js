@@ -34,10 +34,6 @@ class UserActions{
 			AjaxWrapper.put({
 				url:Constants.userApi.replace(/:staff_id/i,id),
 				data:payload,
-				beforeSendCall:(xhr)=>{
-					xhr.setRequestHeader('key',Constants.appkey)
-					xhr.setRequestHeader('token',state.userinfo&&state.userinfo.token)
-				},
 				callback:(user)=>{
 					dispatch(this.updateUserDetailsInStore(user))
 				},
@@ -57,10 +53,6 @@ class UserActions{
 			AjaxWrapper.put({
 				url:Constants.securityUserApi.replace(/:user_id/i,id),
 				data:payload,
-				beforeSendCall:(xhr)=>{
-					xhr.setRequestHeader('key',Constants.appkey)
-					xhr.setRequestHeader('token',state.userinfo&&state.userinfo.token)
-				},
 				callback:(user)=>{
 					if(newUser){
 						dispatch(this.addUserInStore(user))
@@ -86,10 +78,6 @@ class UserActions{
 	 		AjaxWrapper.post({
 	 			url:Constants.createUserApi,
 	 			data:userData,
-	 			beforeSendCall:(xhr)=>{
-	 				xhr.setRequestHeader('key',Constants.appkey)
-	 				xhr.setRequestHeader('token',state.userinfo&&state.userinfo.token)
-	 			},
 	 			callback:(user)=>{
 	 				//if(!CommonFunc.checkEmptyObject(roleData)){
 	 				dispatch(this.updateUserRoles(user.__user_id,roleData,true))
