@@ -17,7 +17,9 @@ export default function authWrapper(WrappedComponent) {
 
     componentDidMount(){
       LoginService.checkIfLoggedIn().then((user)=>{
-        store.dispatch(LoginActions.setAppUser(user))
+        if(user){
+           store.dispatch(LoginActions.setAppUser(user))
+        }
         this.setState({
           reRender:true
         })

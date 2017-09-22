@@ -10,6 +10,7 @@ export default (()=>{
 			'REQUIRED':'value is required',
 			'NUMBER':'value is number',
 			'EMAIL':'value is email address'
-		}
+		},
+		validRole:'hr'
 	}
 })()

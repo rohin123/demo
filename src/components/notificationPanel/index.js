@@ -2,6 +2,7 @@ import React from 'react'
 import Template from './template.jsx'
 import store from '../../store/index.js'
 import NotificationAction from '../../actions/notificationActions.js'
+import {} from '../../../style/notificationPanel.scss'
 
 const NotificationPanel = React.createClass({
 	getInitialState:function(){

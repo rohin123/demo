@@ -135,6 +135,28 @@ const reducer = function(state={},action){
 			return objectAssign({},state,{'loaderCount':count,'bFlags':newFlags})
 		}
 
+		case Actions.OPEN_NOTIFICATION:{
+			newFlags = CommonFunc.setStateFlags(['notificationArrayUpdated'])
+			let notificationArray = state.notificationArray
+			notificationArray.push(action.data)
+			return objectAssign({},state,{'notificationArray':notificationArray,'bFlags':newFlags})
+		}
+
+		case Actions.CLOSE_NOTIFICATION:{
+			newFlags = CommonFunc.setStateFlags(['notificationArrayUpdated'])
+			let notificationArray = state.notificationArray,
+				index = action.data,
+				newNotificationArray = []//notificationArray.slice(0,index)+notificationArray.slice(index+1)
+				for(var i=0;i<notificationArray.length;i++){
+					if(index!=i){
+						newNotificationArray.push(notificationArray[i])
+					}
+				}
+				//console.log(index)
+				//console.log(newNotificationArray)
+				return objectAssign({},state,{'notificationArray':newNotificationArray,'bFlags':newFlags})
+		}
+
 		default:{
 			return state
 		}

@@ -1,5 +1,6 @@
 import store from '../store/index.js'
 import objectAssign from 'object-assign';
+import Appdata from '../utils/appData.js'
 
 class CommonFunc{
 
@@ -127,6 +128,10 @@ class CommonFunc{
 	checkValidEmail(val){
 		var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 		return re.test(val);
+	}
+
+	checkValidRole(role){
+		return role==Appdata.validRole
 	}
 
 }

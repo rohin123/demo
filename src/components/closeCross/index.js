@@ -1,5 +1,6 @@
 import React from 'react'
 import Template from './template.jsx'
+import {} from '../../../style/closeCross.scss'
 
 const CloseCross = React.createClass({
 	componentDidMount:function(){

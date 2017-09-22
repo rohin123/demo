@@ -20,11 +20,18 @@ class LoginActions{
 				url:Constants.loginUrl,
 				data:payload,
 				callback:(user)=>{
-					StorageHelper.setItem(AppData.tokenStorageKey,user.token)
-					dispatch(this.setAppUser(user))
+					let isValidRole = (user.role||[]).some((role)=>{
+						return role==AppData.validRole
+					})
+					if(isValidRole){
+						StorageHelper.setItem(AppData.tokenStorageKey,user.token)
+						dispatch(this.setAppUser(user))
+					}else{
+						dispatch(NotificationAction.openNotification('User Valid but don\'t have access role'))
+					}
 				},
 				errCallback:(err)=>{
-					dispatch(NotificationAction.openNotification('Error'))
+					dispatch(NotificationAction.openNotification('Invalid User'))
 				},
 				options:{
 					showLoader:true

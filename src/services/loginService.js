@@ -14,7 +14,14 @@ class LoginService{
 			AjaxWrapper.get({
 				url:Constants.loginUrl,
 				callback:function(user){
-					resolve(user)
+					let isValid = (user.role||[]).some((role)=>{
+						return role==AppData.validRole
+					})
+					if(isValid){
+						resolve(user)	
+					}else{
+						reject()
+					}
 				},
 				errCallback:function(err){
 					reject()
@@ -34,7 +41,7 @@ class LoginService{
 		let promiseFunc = (resolve,reject)=>{
 			let appState = store.getState()
 			if(appState&&appState.userinfo&&appState.userinfo.token){
-				resolve(appState.userinfo)	
+				resolve()	
 			}else{
 				let token = StorageHelper.getItem(AppData.tokenStorageKey)||null
 				console.log('checkIfLoggedIn-->',token)

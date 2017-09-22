@@ -14,19 +14,20 @@ function configureStore(initialState) {
     initialState,
     applyMiddleware(
       thunkMiddleware,
-      loggerMiddleware
+      //loggerMiddleware
     )
   )
 }
 
 const initialState = {
     loaderCount:0,
-    bFlags:{}
+    bFlags:{},
+    notificationArray:[]
 }
 
 
 const store = configureStore(initialState);
 
-console.log('store--->',store,store.getState())
+//console.log('store--->',store,store.getState())
 
 export default store;
