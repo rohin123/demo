@@ -1,0 +1,1 @@
+cp ./src/utils/constants.dev.js ./src/utils/constants.js

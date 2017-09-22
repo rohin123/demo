@@ -9,7 +9,7 @@ class RoleActions{
 		let state = Store.getState() 
 		return (dispatch)=>{
 			AjaxWrapper.get({
-				url:Constants.rolesInOrgApi.replace(/:organization_id/,Constants.orgId),
+				url:Constants.rolesInOrgApi.replace(/:organization_id/,state.userinfo.organization_id),
 				beforeSendCall:(xhr)=>{
 					xhr.setRequestHeader('key',Constants.appkey)
 					xhr.setRequestHeader('token',state.userinfo&&state.userinfo.token)

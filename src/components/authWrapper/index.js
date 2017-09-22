@@ -6,7 +6,7 @@ import LoginComponent from '../loginComponent'
 import store from '../../store'
 import LoginActions from '../../actions/loginActions.js'
 
-export default function authWrapper(WrappedComponent,rest) {
+export default function authWrapper(WrappedComponent) {
   // ...and returns another component...
   return class extends React.Component{
     constructor(props) {

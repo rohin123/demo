@@ -2,18 +2,22 @@ import React from 'react'
 import LabeledInput from '../labeledInput'
 import MultiSelect from '../multiSelect'
 import AppData from '../../utils/appData.js'
+import RoleSelection from '../roleselection'
 
 const render = function(){
-	let user = this.props.user
-		//allRoles = this.props.allRoles
-	let currRoles = (Object.keys(this.rolesMap)||[]).filter((role)=>{
-						return this.rolesMap[role]
-					})	
-	let availableRoles = (Object.keys(this.rolesMap)||[]).filter((role)=>{
-							return !this.rolesMap[role]
-						})
-	return (
-			<div className='edit-user-div'>
+	let user = this.props.user,
+		innerHtml = null
+	//allRoles = this.props.allRoles
+	// let currRoles = (Object.keys(this.rolesMap)||[]).filter((role)=>{
+	// 					return this.rolesMap[role]
+	// 				})	
+	// let availableRoles = (Object.keys(this.rolesMap)||[]).filter((role)=>{
+	// 						return !this.rolesMap[role]
+	//					})
+	
+	//if(this.isDetailed){
+		innerHtml = (
+			<div>
 				<h2>User Details</h2>
 				<div className='user-details-div'>
 					<LabeledInput label={'Name'} name={'name'} value={user.name||undefined} type={'text'} 
@@ -54,8 +58,9 @@ const render = function(){
 				</div>
 				<h2>User Roles</h2>
 				<div className='roles-div'>
-					<MultiSelect options={currRoles||[]} allOptions={availableRoles||[]} 
-									changeHandler={this.editUserRoles}/>
+					{/*<MultiSelect options={currRoles||[]} allOptions={availableRoles||[]} 
+									changeHandler={this.editUserRoles}/>*/}
+					<RoleSelection rolesMap={this.rolesMap} edit={this.editUserRoles}/>				
 				</div>	
 				<div className={this.isUpdated?'buttons-div':'hide'}>
 					<button className='button green-button edit-button' onClick={this.updateUser}>UPDATE</button>
@@ -63,7 +68,14 @@ const render = function(){
 				</div>
 			</div>
 		)
+	// }else{
+	// 	//innerHtml =	<div style={{"width":"100%","height":"50px"}}></div>
+	// }
+	return <div ref={(elem)=>{this.compRef = elem}} className='edit-user-div' onClick={this.toggle}>
+					{innerHtml}
+			</div>
 }
+
 
 export default render
 

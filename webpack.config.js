@@ -3,7 +3,7 @@ var webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 //const CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
-var importer = require("node-sass-importer");
+//var importer = require("node-sass-importer");
 
 module.exports = {
     context:path.resolve(__dirname),
@@ -15,9 +15,9 @@ module.exports = {
         filename: 'main.js',
 
     },
-    sassConfig: {
-        importer: importer
-      },
+    // sassConfig: {
+    //     importer: importer
+    //   },
     module: {
         loaders: [
             {
@@ -33,16 +33,32 @@ module.exports = {
               test: /\.js$/,
               //include: CLIENT_DIR,
               loader: 'babel-loader',
-               query: {
-                 presets: ['es2015', 'react']
-               }
+               // query: {
+               //   //presets: ['es2015', 'react']
+               //   //"presets": ["env"]
+               //   "presets": [
+               //          ["env", {
+               //            "targets": {
+               //              "browsers": ["last 2 versions"]
+               //            }
+               //          }]
+               //        ]
+               // }
             },
             {
               test: /\.jsx?$/,
                   loader: 'babel-loader',
-                   query: {
-                     presets: ['es2015','react']
-                   }
+                   // query: {
+                   //   //presets: ['es2015','react']
+                   //  //"presets": ["env"]
+                   //  "presets": [
+                   //      ["env", {
+                   //        "targets": {
+                   //          "browsers": ["last 2 versions"]
+                   //        }
+                   //      }]
+                   //    ]
+                   // }
             },
             {
                 test: /\.scss$/,
@@ -76,9 +92,13 @@ module.exports = {
         ],
     },
     plugins: [
-       new ExtractTextPlugin('main.css',{allChunks:true}),
-       new OptimizeCssAssetsPlugin({
-              assetNameRegExp: /\.css$/,
-            })
+      new ExtractTextPlugin('main.css',{allChunks:true}),
+      new webpack.optimize.DedupePlugin(),
+      new webpack.optimize.UglifyJsPlugin({
+          drop_console: true
+      }),
+      new OptimizeCssAssetsPlugin({
+          assetNameRegExp: /\.css$/,
+        })
     ],
 };

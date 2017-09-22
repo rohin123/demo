@@ -6,6 +6,8 @@
     @include box-shadow(1px 1px 6px 1px #c3c3c3);
     margin-bottom: 15px;
     background-color: white;
+    //transition:all 6.5s;
+    overflow: hidden;
 	h2{
 		margin: 10px 0;
 	    font-weight: 300;

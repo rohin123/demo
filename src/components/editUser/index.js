@@ -13,6 +13,7 @@ const EditUser = React.createClass({
 		const {store} = this.context
 		this.store = store
 		this.invalidState = {}
+		this.isDetailed = false
 		return {
 			reRender:false
 		}
@@ -123,6 +124,13 @@ const EditUser = React.createClass({
 	setInvalid:function(name,val){
 		this.invalidState[name] = val
 		this.checkValidUpdate()
+	},
+	toggle:function(){
+		// this.isDetailed=!this.isDetailed
+		// this.compRef.style.maxHeight = this.isDetailed?'999px':'50px'
+		// this.setState({
+		// 	reRender:true
+		// })
 	},
 	render:Template
 })
