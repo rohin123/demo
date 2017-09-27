@@ -15,13 +15,17 @@ const render = function(){
 				<h2>User Details</h2>
 				<div className='user-details-div'>
 					<LabeledInput label={'Name'} name={'name'} type={'text'} 
-									changeHandler={this.addUserBasicDetails}/>
-					<LabeledInput label={'User Name'} name={'user_name'} 
-									type={'text'} changeHandler={this.addUserBasicDetails}
+									changeHandler={this.addUserBasicDetails}
 									validationArr={[{key:AppData.inputValidations.REQUIRED}]}
 									setInvalid={this.setInvalid}/>
+					<LabeledInput label={'User Name'} name={'user_name'} 
+									type={'text'} changeHandler={this.addUserBasicDetails}
+									validationArr={[{key:AppData.inputValidations.REQUIRED, key:AppData.inputValidations.USERNAME}]}
+									setInvalid={this.setInvalid}/>
 					<LabeledInput label={'Password'} name={'password'} 
-									type={'text'} changeHandler={this.addUserBasicDetails}/>				
+									type={'text'} changeHandler={this.addUserBasicDetails}
+									validationArr={[{key:AppData.inputValidations.REQUIRED}]}
+									setInvalid={this.setInvalid}/>				
 					<LabeledInput label={'Phone Number'} name={'phone_number'} 
 									type={'text'} changeHandler={this.addUserBasicDetails}
 									validationArr={[{key:AppData.inputValidations.NUMBER}]}
@@ -31,8 +35,10 @@ const render = function(){
 									validationArr={[{key:AppData.inputValidations.EMAIL}]}
 									setInvalid={this.setInvalid}/>
 					<LabeledInput label={'Employee Code'} name={'code'} 
-									type={'text'} 
-									changeHandler={this.addUserEmpDetails}/>
+								type={'text'} 
+								changeHandler={this.addUserEmpDetails}
+								validationArr={[{key:AppData.inputValidations.REQUIRED}]}
+								setInvalid={this.setInvalid} />
 					<LabeledInput label={'Designation'} name={'designation'} 
 									type={'text'} 
 									changeHandler={this.addUserEmpDetails}/>

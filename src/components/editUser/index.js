@@ -132,6 +132,22 @@ const EditUser = React.createClass({
 		// 	reRender:true
 		// })
 	},
+	actionSelected: function(eventKey, event){
+		let user = this.props.user;
+		let payload;
+		if(user.active){
+			payload = {
+				active: false
+			}
+			
+		}else{
+			payload = {
+				active: true
+			}
+		}
+
+		this.store.dispatch(UserActions.updateUserDetails(user.child_id, payload))
+	},
 	render:Template
 })
 

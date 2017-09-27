@@ -12,7 +12,11 @@ const AddUser = React.createClass({
 		this.userDetails = {}
 		this.roleDetails = {}
 		this.invalidState = {
-			user_name:true
+			user_name:true,
+			name: true,
+			password: true,
+			email: true,
+			code: true
 		}
 		return {
 			reRender:false

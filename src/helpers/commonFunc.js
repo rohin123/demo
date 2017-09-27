@@ -130,6 +130,11 @@ class CommonFunc{
 		return re.test(val);
 	}
 
+	checkValidUsername(val){
+		var usernameRegex = /^[a-zA-Z0-9.\-_$@]{1,70}$/;
+		return usernameRegex.test(val);
+	}
+
 	checkValidRole(role){
 		return role==Appdata.validRole
 	}
