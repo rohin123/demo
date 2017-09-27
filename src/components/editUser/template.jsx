@@ -66,8 +66,12 @@ const render = function(){
 									setInvalid={this.setInvalid}
 									readonly={ !userActive }/>
 					<LabeledInput label={'Ifsc Code'} name={'ifsc_code'} 
-									value={(user.bank_details&&user.bank_details.ifsc_code)||undefined} type={'text'} 
+									type={'password'} 
 									changeHandler={this.editUserBankDetails}
+									readonly={ !userActive }/>
+					<LabeledInput label={'New Password'} name={'password'} 
+									value={(user.bank_details&&user.bank_details.ifsc_code)||undefined} type={'password'} 
+									changeHandler={this.editUserBasicDetails}
 									readonly={ !userActive }/>																												
 				</div>
 

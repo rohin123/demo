@@ -23,7 +23,7 @@ const render = function(){
 									validationArr={[{key:AppData.inputValidations.REQUIRED, key:AppData.inputValidations.USERNAME}]}
 									setInvalid={this.setInvalid}/>
 					<LabeledInput label={'Password'} name={'password'} 
-									type={'text'} changeHandler={this.addUserBasicDetails}
+									type={'password'} changeHandler={this.addUserBasicDetails}
 									validationArr={[{key:AppData.inputValidations.REQUIRED}]}
 									setInvalid={this.setInvalid}/>				
 					<LabeledInput label={'Phone Number'} name={'phone_number'} 
