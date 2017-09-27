@@ -1,1 +1,0 @@
-cp ./src/utils/constants.prod.js ./src/utils/constants.js

@@ -1,11 +1,11 @@
 const protocol = "http://";
 const sProtocol = "https://";
 
-const SecurityManagementDomain = sProtocol + "dev-security-management.appspot.com/";
-const UserManagementDomain = sProtocol + "dev-user-management.appspot.com/";
+const SecurityManagementDomain = sProtocol + "security-management.appspot.com/";
+const UserManagementDomain = sProtocol + "user-management-1096.appspot.com/";
 
 export default {
-	"appkey":"a47b59825a9244c0327d2be69cfcdcca",
+	"appkey":"7f18c33cd61496c6aef15a1b85b1e83c",
 	"rolesInOrgApi":SecurityManagementDomain + "api/organization/:organization_id/roles",
 	"fetchUsersInOrg":SecurityManagementDomain + "api/organization/:organizationId/users",
 	"loginUrl": UserManagementDomain + "login",
