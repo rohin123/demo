@@ -70,7 +70,7 @@ const render = function(){
 									changeHandler={this.editUserBankDetails}
 									readonly={ !userActive }/>
 					<LabeledInput label={'New Password'} name={'password'} 
-									value={(user.bank_details&&user.bank_details.ifsc_code)||undefined} type={'password'} 
+									type={'password'} 
 									changeHandler={this.editUserBasicDetails}
 									readonly={ !userActive }/>																												
 				</div>
