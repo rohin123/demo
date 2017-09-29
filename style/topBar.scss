@@ -20,16 +20,16 @@
 	    	position: absolute;
 	    	font-weight: 300;
 	    	@include transition(all 0.4s);
+	    	font-size: 1.4rem;
+	    	@include transformOrigin(center left);
 	    }
 
 	    .label-down{
-	    	top:10px;
-	    	font-size: 1.4rem;
+	    	@include transform(translate(0,15px) scale(1));
 	    }
 
 	    .label-up{
-	    	top:-4px;
-	    	font-size: 0.9rem;
+	    	@include transform(translate(0,-2px) scale(0.6));
 	    }
 	}
 	.top-bar-buttons{

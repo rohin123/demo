@@ -11,16 +11,17 @@
 		position: absolute;
 		@include transition(all 0.4s);
 		font-weight: 400;
+		font-size: 1.1rem;
 	}
 
 	.label-up{
-		top: -10px;
-		font-size: 0.8rem;
+		@include transform(translate(0,-20px) scale(0.75));
+		@include transformOrigin(center left);
 	}
 
 	.label-down{
-		top: 0px;
-		font-size: 1.1rem;
+		@include transform(translate(0,0) scale(1));
+		@include transformOrigin(center left);
 	}
 
 	.input-div{

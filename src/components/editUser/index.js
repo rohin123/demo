@@ -14,6 +14,7 @@ const EditUser = React.createClass({
 		this.store = store
 		this.invalidState = {}
 		this.isDetailed = false
+		this.showResetPassWidget = false
 		return {
 			reRender:false
 		}
@@ -125,12 +126,14 @@ const EditUser = React.createClass({
 		this.invalidState[name] = val
 		this.checkValidUpdate()
 	},
-	toggle:function(){
-		// this.isDetailed=!this.isDetailed
-		// this.compRef.style.maxHeight = this.isDetailed?'999px':'50px'
-		// this.setState({
-		// 	reRender:true
-		// })
+	resetPassInit:function(){
+		this.showResetPassWidget = !this.showResetPassWidget
+		this.setState({
+			reRender:true
+		})
+	},
+	stopBubbling:function(e){
+		e.stopPropagation()
 	},
 	render:Template
 })

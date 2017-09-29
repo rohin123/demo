@@ -27,7 +27,7 @@ class LoginActions{
 						StorageHelper.setItem(AppData.tokenStorageKey,user.token)
 						dispatch(this.setAppUser(user))
 					}else{
-						dispatch(NotificationAction.openNotification('User Valid but don\'t have access role'))
+						dispatch(NotificationAction.openNotification('User Valid but doesn\'t have access role'))
 					}
 				},
 				errCallback:(err)=>{

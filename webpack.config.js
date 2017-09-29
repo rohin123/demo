@@ -95,6 +95,11 @@ module.exports = {
         historyApiFallback:true
     },
     plugins: [
+      new webpack.DefinePlugin({
+        'process.env': {
+          NODE_ENV: JSON.stringify('production')
+        }
+      }),
       new ExtractTextPlugin('main.css',{allChunks:true}),
       new webpack.optimize.DedupePlugin(),
       new webpack.optimize.UglifyJsPlugin({

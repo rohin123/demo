@@ -2,7 +2,8 @@ import React from 'react'
 import LabeledInput from '../labeledInput'
 import MultiSelect from '../multiSelect'
 import AppData from '../../utils/appData.js'
-import RoleSelection from '../roleselection'
+import RoleSelection from '../roleSelection'
+import ResetPassword from '../resetPassComp'
 
 const render = function(){
 	let user = this.props.user,
@@ -54,7 +55,13 @@ const render = function(){
 									setInvalid={this.setInvalid}/>
 					<LabeledInput label={'Ifsc Code'} name={'ifsc_code'} 
 									value={(user.bank_details&&user.bank_details.ifsc_code)||undefined} type={'text'} 
-									changeHandler={this.editUserBankDetails}/>																												
+									changeHandler={this.editUserBankDetails}/>	
+					<div className='reset-pass-button' onClick={this.resetPassInit}>
+								ResetPass
+								{this.showResetPassWidget?	<div className='reset-pass-div' onClick={this.stopBubbling}>
+																<ResetPassword/>
+															</div>:null}
+					</div>																														
 				</div>
 				<h2>User Roles</h2>
 				<div className='roles-div'>

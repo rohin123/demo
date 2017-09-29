@@ -20,7 +20,7 @@ const render = function(){
 	 				<div>
 	 					<Loader/>
 						<NotificationPanel/>
-						<Route path='/' component={AuthWrapper(HomeComponent)}/>
+						<Route exact path='/' component={AuthWrapper(HomeComponent)}/>
 	 					<Route path='/login' component={LoginComponent}/>
 	 				</div>
 	 			</Provider>	

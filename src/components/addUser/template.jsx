@@ -2,6 +2,7 @@ import React from 'react'
 import LabeledInput from '../labeledInput'
 import MultiSelect from '../multiSelect'
 import AppData from '../../utils/appData.js'
+import RoleSelection from '../roleSelection'
 
 const render = function(){
 	let currRoles = (Object.keys(this.rolesMap)||[]).filter((role)=>{
@@ -21,7 +22,9 @@ const render = function(){
 									validationArr={[{key:AppData.inputValidations.REQUIRED}]}
 									setInvalid={this.setInvalid}/>
 					<LabeledInput label={'Password'} name={'password'} 
-									type={'text'} changeHandler={this.addUserBasicDetails}/>				
+									type={'text'} changeHandler={this.addUserBasicDetails}
+									validationArr={[{key:AppData.inputValidations.REQUIRED}]}
+									setInvalid={this.setInvalid}/>				
 					<LabeledInput label={'Phone Number'} name={'phone_number'} 
 									type={'text'} changeHandler={this.addUserBasicDetails}
 									validationArr={[{key:AppData.inputValidations.NUMBER}]}
@@ -56,8 +59,9 @@ const render = function(){
 				</div>
 				<h2>User Roles</h2>
 				<div className='roles-div'>
-					<MultiSelect options={currRoles||[]} allOptions={availableRoles||[]} 
-									changeHandler={this.addUserRoles}/>
+					{/*<MultiSelect options={currRoles||[]} allOptions={availableRoles||[]} 
+														changeHandler={this.addUserRoles}/>*/}
+					<RoleSelection rolesMap={this.rolesMap} edit={this.addUserRoles}/>	
 				</div>	
 				<div className={this.isValidSave?'buttons-div':'hide'}>
 					<button className='button green-button edit-button' onClick={this.saveUser}>SAVE</button>

@@ -7,7 +7,7 @@
     margin-bottom: 15px;
     background-color: white;
     //transition:all 6.5s;
-    overflow: hidden;
+    //overflow: hidden;
 	h2{
 		margin: 10px 0;
 	    font-weight: 300;
@@ -29,5 +29,22 @@
 		padding: 8px;
 		background-color: #40a010;
 		margin-right: 10px;
+	}
+	.reset-pass-button{
+		display: inline-block;
+	    position: relative;
+	    padding: 10px;
+	    margin: 10px 20px 10px 10px;
+	    background-color: blanchedalmond;
+	}
+	.reset-pass-div{
+		position: absolute;
+	    top: -100px;
+	    left: -310px;
+	    width: 250px;
+	    height: 180px;
+	    border: 1px solid #c3c3c3;
+	    border-radius: 5px;
+	    background-color: #fff;
 	}
 }
