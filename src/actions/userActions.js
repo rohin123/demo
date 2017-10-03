@@ -11,10 +11,6 @@ class UserActions{
 		return (dispatch)=>{
 			AjaxWrapper.get({
 				url:Constants.fetchUsersInOrg.replace(/:organizationId/i,state.userinfo.organization.id),
-				// beforeSendCall:(xhr)=>{
-				// 	xhr.setRequestHeader('key',Constants.appkey)
-				// 	xhr.setRequestHeader('token',state.userinfo&&state.userinfo.token)
-				// },
 				callback:(users)=>{
 					dispatch(this.setUsers(users))
 				},

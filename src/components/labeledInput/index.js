@@ -13,8 +13,7 @@ const LabeledInput = React.createClass({
 		}
 	},
 	changeHandler:function(name,e){
-		let val = e.target.value
-		console.log(val)
+		let val = e.target.value;
 		if(this.props.validationArr&&this.props.validationArr.length){
 			let validState = this.checkVaildInput(val)
 			this.isValid = validState.valid

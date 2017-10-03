@@ -27,6 +27,14 @@ class FormValidations{
 				}
 			}
 
+			case AppData.inputValidations.USERNAME:{
+				let valid = val?CommonFunc.checkValidUsername(val):true
+				return {
+					valid: valid,
+					defaultMssg: 'Only letters (a-z), numbers, and periods'
+				}
+			}
+
 			default:{
 				return {
 					valid:true,

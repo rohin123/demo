@@ -43,18 +43,20 @@ const reducer = function(state={},action){
 								)	
 		}
 
-		case Actions.UPDATE_USER:{
+		case Actions.UPDATE_USER_DETAILS:{
 			newFlags = CommonFunc.setStateFlags(['user_updated'])
 			let udaptedUser = action.data,
 				users = CommonFunc.deepCopyObject(state.users),
 				updatedUserId = null
 			for(var i=0;i<users.length;i++){
-				if(users[i]['child_id']==udaptedUser['id']){
+				if(users[i]['child_id'] == udaptedUser['id']){
 					let user = users[i]
 					updatedUserId = user.child_id
 					user.name = udaptedUser.name
 					user.phone_number = udaptedUser.phone_number
 					user.email = udaptedUser.email
+					user.active = udaptedUser.active;
+					
 					if(udaptedUser.bank_details){
 						if(!user.bank_details){
 							user.bank_details = {}

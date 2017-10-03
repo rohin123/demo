@@ -11,7 +11,8 @@ const render =  function(){
 								<Role key={item.toString()+index}
 										role={item}
 										isSelected={this.props.rolesMap[item]}
-										select={this.toggleOptionState}/>
+										select={this.toggleOptionState}
+										readonly={this.props.readonly}/>
 												)
 					}),
 		innerHtml2 = roles.filter((item)=>{
@@ -21,7 +22,8 @@ const render =  function(){
 								<Role key={item.toString()+index}
 										role={item}
 										isSelected={this.props.rolesMap[item]}
-										select={this.toggleOptionState}/>
+										select={this.toggleOptionState}
+										readonly={this.props.readonly}/>
 												)
 					})			
 

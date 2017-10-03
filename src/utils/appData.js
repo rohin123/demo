@@ -9,7 +9,8 @@ export default (()=>{
 		inputValidations:{
 			'REQUIRED':'value is required',
 			'NUMBER':'value is number',
-			'EMAIL':'value is email address'
+			'EMAIL':'value is email address',
+			'USERNAME': 'valus is username'
 		},
 		validRole:'hr'
 	}

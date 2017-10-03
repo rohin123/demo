@@ -9,6 +9,9 @@ const Role = React.createClass({
 		}
 	},
 	toggle:function(){
+		if(this.props.readonly){
+			return;
+		}
 		this.isSelected = !this.isSelected
 		this.props.select(this.props.role,this.isSelected)
 	},
