@@ -11,11 +11,13 @@ const render = function(){
 	return (
 			<div className='tag-input'>
 				{innerHtml}
-				<input ref={(elem)=>{this.addInput = elem}} className='add-new-tag' size={this.inputSize} 
-					onChange={this.handleChange}
-					onBlur={this.insertTag} 
-					value={this.newTag}></input>
-				<span className={addLabelClass} onClick={this.handleAddClick}>Add New Tag</span>			
+				<div className='add-tag-wrapper'>
+					<input ref={(elem)=>{this.addInput = elem}} className='add-new-tag' size={this.inputSize} 
+						onChange={this.handleChange}
+						onBlur={this.insertTag} 
+						value={this.newTag}></input>
+					<span className={addLabelClass} onClick={this.handleAddClick}>Add New Tag</span>		
+				</div>		
 			</div>
 		)
 }

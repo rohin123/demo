@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 const CloseCross = function(props){
 	return (
 			<div className='close-cross'>

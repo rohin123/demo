@@ -23856,16 +23856,20 @@
 			'div',
 			{ className: 'tag-input' },
 			innerHtml,
-			_react2.default.createElement('input', { ref: function ref(elem) {
-					_this.addInput = elem;
-				}, className: 'add-new-tag', size: this.inputSize,
-				onChange: this.handleChange,
-				onBlur: this.insertTag,
-				value: this.newTag }),
 			_react2.default.createElement(
-				'span',
-				{ className: addLabelClass, onClick: this.handleAddClick },
-				'Add New Tag'
+				'div',
+				{ className: 'add-tag-wrapper' },
+				_react2.default.createElement('input', { ref: function ref(elem) {
+						_this.addInput = elem;
+					}, className: 'add-new-tag', size: this.inputSize,
+					onChange: this.handleChange,
+					onBlur: this.insertTag,
+					value: this.newTag }),
+				_react2.default.createElement(
+					'span',
+					{ className: addLabelClass, onClick: this.handleAddClick },
+					'Add New Tag'
+				)
 			)
 		);
 	};
