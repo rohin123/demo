@@ -2,8 +2,7 @@ var express =  require('express')
 var path = require('path')
 
 const app = express();
-var port = 3333;
-var env = process.env.NODE_ENV;
+var port = (process.env.PORT || 5000);
 
 app.set('view engine', 'html');
 app.use(express.static(path.resolve(__dirname, './dist')));
