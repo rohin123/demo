@@ -18,16 +18,26 @@ const TagInput = React.createClass({
 			reRender:true
 		})
 	},
+	handleBlur:function(){
+		this.insertTag()
+		this.resetInput()
+	},
+	handleKeyUp:function(e){
+		e.which = e.which || e.keyCode;
+	    if(e.which == 13) {
+	    	this.insertTag()
+	    	this.newTag = ''
+	    	this.resizeInput(1)
+	    }
+	},
 	insertTag:function(){
 		if(this.newTag.length){
 			let tagList = this.props.tagList||[],
 			newTagList = tagList.concat([{name:this.newTag,id:tagList.length}])
 			this.props.setList(newTagList)
-		}
-		this.resetInput()
+		}	
 	},
 	removeTag:function(id){
-		console.log(id)
 		let newTagList = (this.props.tagList||[]).filter((item)=>{
 			if(item.id==id){
 				return false

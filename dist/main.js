@@ -23782,16 +23782,26 @@
 				reRender: true
 			});
 		},
+		handleBlur: function handleBlur() {
+			this.insertTag();
+			this.resetInput();
+		},
+		handleKeyUp: function handleKeyUp(e) {
+			e.which = e.which || e.keyCode;
+			if (e.which == 13) {
+				this.insertTag();
+				this.newTag = '';
+				this.resizeInput(1);
+			}
+		},
 		insertTag: function insertTag() {
 			if (this.newTag.length) {
 				var tagList = this.props.tagList || [],
 				    newTagList = tagList.concat([{ name: this.newTag, id: tagList.length }]);
 				this.props.setList(newTagList);
 			}
-			this.resetInput();
 		},
 		removeTag: function removeTag(id) {
-			console.log(id);
 			var newTagList = (this.props.tagList || []).filter(function (item) {
 				if (item.id == id) {
 					return false;
@@ -23846,7 +23856,6 @@
 	var render = function render() {
 		var _this = this;
 
-		console.log('render', this.props.tagList);
 		var innerHtml = (this.props.tagList || []).map(function (item) {
 			return _react2.default.createElement(_tag2.default, { name: item.name, id: item.id, removeTag: _this.removeTag });
 		}),
@@ -23863,7 +23872,8 @@
 						_this.addInput = elem;
 					}, className: 'add-new-tag', size: this.inputSize,
 					onChange: this.handleChange,
-					onBlur: this.insertTag,
+					onBlur: this.handleBlur,
+					onKeyUp: this.handleKeyUp,
 					value: this.newTag }),
 				_react2.default.createElement(
 					'span',
