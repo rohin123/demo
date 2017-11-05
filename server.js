@@ -5,19 +5,6 @@ const app = express();
 var port = 3333;
 var env = process.env.NODE_ENV;
 
-switch(env){
-	case "production":
-		port = 80;
-		break;
-
-	case "development":
-		port= 8080;
-		break;
-
-	default:
-		port = 3333;
-		break;
-}
 app.set('view engine', 'html');
 app.use(express.static(path.resolve(__dirname, './dist')));
 
