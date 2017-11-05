@@ -33,7 +33,7 @@ const TagInput = React.createClass({
 	insertTag:function(){
 		if(this.newTag.length){
 			let tagList = this.props.tagList||[],
-			newTagList = tagList.concat([{name:this.newTag,id:tagList.length}])
+			newTagList = tagList.concat([{name:this.newTag.trim(),id:new Date().getTime()}])
 			this.props.setList(newTagList)
 		}	
 	},
