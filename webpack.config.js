@@ -102,9 +102,9 @@ module.exports = {
       }),
       new ExtractTextPlugin('main.css',{allChunks:true}),
       new webpack.optimize.DedupePlugin(),
-      new webpack.optimize.UglifyJsPlugin({
-          drop_console: true
-      }),
+      // new webpack.optimize.UglifyJsPlugin({
+      //     drop_console: true
+      // }),
       new OptimizeCssAssetsPlugin({
           assetNameRegExp: /\.css$/,
         })

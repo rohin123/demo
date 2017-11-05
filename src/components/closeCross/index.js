@@ -1,14 +1,13 @@
 import React from 'react'
-import Template from './template.jsx'
-import {} from '../../../style/closeCross.scss'
 
-const CloseCross = React.createClass({
-	componentDidMount:function(){
-		//console.log("cross color-->",this.props.color)
-		this.cross1.style.borderColor = this.props.color?this.props.color:'#ffdb46'
-		this.cross2.style.borderColor = this.props.color?this.props.color:'#ffdb46'
-	},
-	render:Template
-})
+
+const CloseCross = function(props){
+	return (
+			<div className='close-cross'>
+					<div className='line1'></div>
+					<div className='line2'></div>
+			</div>
+		)
+}
 
 export default CloseCross
