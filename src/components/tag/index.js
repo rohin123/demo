@@ -1,14 +1,13 @@
 import React from 'react'
-//import CloseCross from '../closeCross'
+import Template from './template.jsx'
 
-const Tag = function(props){
-	return <div className='tag'>
-				{props.name}
-				<div className='close-cross' onClick={props.removeTag.bind(null,props.id)}>
-					<div className='line1'></div>
-					<div className='line2'></div>
-				</div>
-			</div>
-}
+const Tag = React.createClass({
+	getInitialState:function(){
+		return {
+			reRender:false
+		}
+	},
+	render:Template
+})
 
 export default Tag
