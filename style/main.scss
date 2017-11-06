@@ -6,13 +6,12 @@
 
 .tag-input{
 	display: inline-block;
-    padding: 5px 20px 5px 5px;
+    padding: 5px;
     border: 1px solid #c3c3c3;
     .add-tag-wrapper{
     	display: inline-block;
     	padding: 7px 5px 7px 5px;
     	.add-new-tag{
-	    	//padding: 5px 10px;
 		    border: none;
 		    outline: none;
 		    margin-left: 5px;
@@ -20,17 +19,19 @@
 		.add-label-span{
 			margin-left: -20px;
 			cursor: pointer;
+			color: #696969;
 		}
     }
 }
 
 .tag{
 	padding: 5px 20px 5px 10px;
-	background-color: mediumseagreen;
+	background-color: #5bc0de;
 	border-radius: 4px;
 	display: inline-block;
 	margin:2px;
 	position: relative;
+	color: white;
 
 	.close-cross{
 		position: absolute;
@@ -44,14 +45,14 @@
 			position: absolute;
 		    width: 11px;
 		    height: 1px;
-		    background: #000;
+		    background: #fff;
 		    top: 5px;
 		}
 		.line2{
 			width: 1px;
 		    position: absolute;
 		    height: 11px;
-		    background: #000;
+		    background: #fff;
 		    left: 5px;
 		}
 	}

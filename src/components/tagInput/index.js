@@ -9,10 +9,11 @@ const TagInput = React.createClass({
 		}
 	},
 	insertTag:function(val){
-		let tag = val.trim()
-		if(tag.length){
-			let tagList = this.props.tagList||[],
-			newTagList = tagList.concat([tag])
+		let tag = val.trim(),
+			tagList = this.props.tagList||[]
+
+		if(tag.length&&!this.checkDuplicate(tagList,tag)){
+			let newTagList = tagList.concat([tag])
 			this.props.setList(newTagList)
 		}
 	},
@@ -20,6 +21,15 @@ const TagInput = React.createClass({
 		let tagList = this.props.tagList||[]
 		tagList.splice(index,1)
 		this.props.setList(tagList)
+	},
+	checkDuplicate:function(list,item){
+		for(var i=0;i<list.length;i++){
+			if(list[i]==item){
+				return true
+			}
+		}
+
+		return false
 	},
 	render:Template
 })

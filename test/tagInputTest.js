@@ -2,9 +2,7 @@ import {expect} from 'chai'
 import TagInput from '../src/components/tagInput'
 import Tag from '../src/components/tag'
 import React from 'react'
-import TestRenderer from 'react-test-renderer'
 import ReactTestUtils from 'react-dom/test-utils';
-import ReactDOM from 'react-dom';
 import ShallowRenderer from 'react-test-renderer/shallow';
 
 describe('tagInput',()=>{

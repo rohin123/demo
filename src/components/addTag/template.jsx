@@ -4,7 +4,8 @@ const render = function(){
 	let addLabelClass = this.showAddLabel?'add-label-span':'hide'
 	return (
 		<div className='add-tag-wrapper'>
-			<input ref='addTagRef' className='add-new-tag' size={this.inputSize} 
+			<input ref='addTagRef' className='add-new-tag' size={this.inputSize}
+				type='text' 
 				onChange={this.handleChange}
 				onBlur={this.handleBlur}
 				onKeyUp={this.handleKeyUp} 

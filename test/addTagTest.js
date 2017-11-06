@@ -1,7 +1,6 @@
 import {expect} from 'chai'
 import AddTag from '../src/components/addTag'
 import React from 'react'
-//import TestRenderer from 'react-test-renderer'
 import ReactTestUtils from 'react-dom/test-utils';
 
 

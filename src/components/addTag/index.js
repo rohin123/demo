@@ -1,5 +1,6 @@
 import React from 'react'
 import Template from './template.jsx'
+import PropTypes from 'prop-types'
 
 const AddTag = React.createClass({
 	getInitialState:function(){
@@ -22,12 +23,12 @@ const AddTag = React.createClass({
 		e.which = e.which || e.keyCode;
 	    if(e.which == 13) {
 	    	this.props.insertTag(this.newTag)
-	    	this.newTag = ''
-	    	this.resizeInput(1)
+	    	this.resetInput()
 	    }
 	},
 	handleBlur:function(){
 		this.props.insertTag(this.newTag)
+		this.showAddLabel = true
 		this.resetInput()
 	},
 	handleAddClick:function(){
@@ -40,7 +41,6 @@ const AddTag = React.createClass({
 	resetInput:function(){
 		this.resizeInput(1)
 		this.newTag = ''
-		this.showAddLabel = true
 		this.setState({
 			reRender:true
 		})
@@ -50,5 +50,9 @@ const AddTag = React.createClass({
 	},
 	render:Template
 })
+
+AddTag.propTypes = {
+	insertTag:PropTypes.func
+}
 
 export default AddTag

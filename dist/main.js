@@ -85,7 +85,7 @@
 	  return obj && obj.__esModule ? obj : { default: obj };
 	}
 
-	console.log('setup');
+	//console.log('setup');
 
 	_reactDom2.default.render(_react2.default.createElement(_app2.default, null), document.getElementById('mainContainer'));
 
@@ -20274,7 +20274,7 @@
 
 	var _template2 = _interopRequireDefault(_template);
 
-	var _propTypes = __webpack_require__(179);
+	var _propTypes = __webpack_require__(177);
 
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -20291,11 +20291,11 @@
 			};
 		},
 		insertTag: function insertTag(val) {
-			console.log(val);
-			var tag = val.trim();
-			if (tag.length) {
-				var tagList = this.props.tagList || [],
-				    newTagList = tagList.concat([tag]);
+			var tag = val.trim(),
+			    tagList = this.props.tagList || [];
+
+			if (tag.length && !this.checkDuplicate(tagList, tag)) {
+				var newTagList = tagList.concat([tag]);
 				this.props.setList(newTagList);
 			}
 		},
@@ -20303,6 +20303,15 @@
 			var tagList = this.props.tagList || [];
 			tagList.splice(index, 1);
 			this.props.setList(tagList);
+		},
+		checkDuplicate: function checkDuplicate(list, item) {
+			for (var i = 0; i < list.length; i++) {
+				if (list[i] == item) {
+					return true;
+				}
+			}
+
+			return false;
 		},
 		render: _template2.default
 	});
@@ -20332,7 +20341,7 @@
 
 	var _tag2 = _interopRequireDefault(_tag);
 
-	var _addTag = __webpack_require__(177);
+	var _addTag = __webpack_require__(179);
 
 	var _addTag2 = _interopRequireDefault(_addTag);
 
@@ -20373,6 +20382,10 @@
 
 	var _template2 = _interopRequireDefault(_template);
 
+	var _propTypes = __webpack_require__(177);
+
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+
 	function _interopRequireDefault(obj) {
 		return obj && obj.__esModule ? obj : { default: obj };
 	}
@@ -20380,8 +20393,19 @@
 	var Tag = _react2.default.createClass({
 		displayName: 'Tag',
 
+		getInitialState: function getInitialState() {
+			return {
+				reRender: false
+			};
+		},
 		render: _template2.default
 	});
+
+	Tag.propTypes = {
+		id: _propTypes2.default.number,
+		name: _propTypes2.default.string,
+		removeTag: _propTypes2.default.func
+	};
 
 	exports.default = Tag;
 
@@ -20424,118 +20448,6 @@
 
 	'use strict';
 
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _template = __webpack_require__(178);
-
-	var _template2 = _interopRequireDefault(_template);
-
-	function _interopRequireDefault(obj) {
-		return obj && obj.__esModule ? obj : { default: obj };
-	}
-
-	var AddTag = _react2.default.createClass({
-		displayName: 'AddTag',
-
-		getInitialState: function getInitialState() {
-			this.inputSize = 1;
-			this.newTag = '';
-			this.showAddLabel = true;
-			return {
-				reRender: false
-			};
-		},
-		handleChange: function handleChange(e) {
-			var tagval = e.target.value;
-			this.resizeInput(tagval.length);
-			this.newTag = tagval;
-			this.setState({
-				reRender: true
-			});
-		},
-		handleKeyUp: function handleKeyUp(e) {
-			e.which = e.which || e.keyCode;
-			if (e.which == 13) {
-				this.props.insertTag(this.newTag);
-				this.newTag = '';
-				this.resizeInput(1);
-			}
-		},
-		handleBlur: function handleBlur() {
-			this.props.insertTag(this.newTag);
-			this.resetInput();
-		},
-		handleAddClick: function handleAddClick() {
-			this.showAddLabel = false;
-			this.refs.addTagRef.focus();
-			this.setState({
-				reRender: true
-			});
-		},
-		resetInput: function resetInput() {
-			this.resizeInput(1);
-			this.newTag = '';
-			this.showAddLabel = true;
-			this.setState({
-				reRender: true
-			});
-		},
-		resizeInput: function resizeInput(size) {
-			this.inputSize = size;
-		},
-		render: _template2.default
-	});
-
-	exports.default = AddTag;
-
-/***/ },
-/* 178 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var render = function render() {
-		var addLabelClass = this.showAddLabel ? 'add-label-span' : 'hide';
-		return _react2.default.createElement(
-			'div',
-			{ className: 'add-tag-wrapper' },
-			_react2.default.createElement('input', { ref: 'addTagRef', className: 'add-new-tag', size: this.inputSize,
-				onChange: this.handleChange,
-				onBlur: this.handleBlur,
-				onKeyUp: this.handleKeyUp,
-				value: this.newTag || '' }),
-			_react2.default.createElement(
-				'span',
-				{ className: addLabelClass, onClick: this.handleAddClick },
-				'Add New Tag'
-			)
-		);
-	};
-
-	exports.default = render;
-
-/***/ },
-/* 179 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
 	var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 	var _typeof = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol" ? function (obj) {
@@ -20565,11 +20477,11 @@
 	} else {
 	  // By explicitly using `prop-types` you are opting into new production behavior.
 	  // http://fb.me/prop-types-in-prod
-	  module.exports = __webpack_require__(180)();
+	  module.exports = __webpack_require__(178)();
 	}
 
 /***/ },
-/* 180 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20625,6 +20537,126 @@
 
 	  return ReactPropTypes;
 	};
+
+/***/ },
+/* 179 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _template = __webpack_require__(180);
+
+	var _template2 = _interopRequireDefault(_template);
+
+	var _propTypes = __webpack_require__(177);
+
+	var _propTypes2 = _interopRequireDefault(_propTypes);
+
+	function _interopRequireDefault(obj) {
+		return obj && obj.__esModule ? obj : { default: obj };
+	}
+
+	var AddTag = _react2.default.createClass({
+		displayName: 'AddTag',
+
+		getInitialState: function getInitialState() {
+			this.inputSize = 1;
+			this.newTag = '';
+			this.showAddLabel = true;
+			return {
+				reRender: false
+			};
+		},
+		handleChange: function handleChange(e) {
+			var tagval = e.target.value;
+			this.resizeInput(tagval.length);
+			this.newTag = tagval;
+			this.setState({
+				reRender: true
+			});
+		},
+		handleKeyUp: function handleKeyUp(e) {
+			e.which = e.which || e.keyCode;
+			if (e.which == 13) {
+				this.props.insertTag(this.newTag);
+				this.resetInput();
+			}
+		},
+		handleBlur: function handleBlur() {
+			this.props.insertTag(this.newTag);
+			this.showAddLabel = true;
+			this.resetInput();
+		},
+		handleAddClick: function handleAddClick() {
+			this.showAddLabel = false;
+			this.refs.addTagRef.focus();
+			this.setState({
+				reRender: true
+			});
+		},
+		resetInput: function resetInput() {
+			this.resizeInput(1);
+			this.newTag = '';
+			this.setState({
+				reRender: true
+			});
+		},
+		resizeInput: function resizeInput(size) {
+			this.inputSize = size;
+		},
+		render: _template2.default
+	});
+
+	AddTag.propTypes = {
+		insertTag: _propTypes2.default.func
+	};
+
+	exports.default = AddTag;
+
+/***/ },
+/* 180 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var render = function render() {
+		var addLabelClass = this.showAddLabel ? 'add-label-span' : 'hide';
+		return _react2.default.createElement(
+			'div',
+			{ className: 'add-tag-wrapper' },
+			_react2.default.createElement('input', { ref: 'addTagRef', className: 'add-new-tag', size: this.inputSize,
+				type: 'text',
+				onChange: this.handleChange,
+				onBlur: this.handleBlur,
+				onKeyUp: this.handleKeyUp,
+				value: this.newTag || '' }),
+			_react2.default.createElement(
+				'span',
+				{ className: addLabelClass, onClick: this.handleAddClick },
+				'Add New Tag'
+			)
+		);
+	};
+
+	exports.default = render;
 
 /***/ },
 /* 181 */

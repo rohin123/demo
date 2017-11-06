@@ -15,9 +15,6 @@ module.exports = {
         filename: 'main.js',
 
     },
-    // sassConfig: {
-    //     importer: importer
-    //   },
     module: {
         loaders: [
             {
@@ -30,35 +27,12 @@ module.exports = {
             },
     
             {
-              test: /\.js$/,
-              //include: CLIENT_DIR,
-              loader: 'babel-loader',
-               // query: {
-               //   //presets: ['es2015', 'react']
-               //   //"presets": ["env"]
-               //   "presets": [
-               //          ["env", {
-               //            "targets": {
-               //              "browsers": ["last 2 versions"]
-               //            }
-               //          }]
-               //        ]
-               // }
+                test: /\.js$/,
+                loader: 'babel-loader',
             },
             {
-              test: /\.jsx?$/,
-                  loader: 'babel-loader',
-                   // query: {
-                   //   //presets: ['es2015','react']
-                   //  //"presets": ["env"]
-                   //  "presets": [
-                   //      ["env", {
-                   //        "targets": {
-                   //          "browsers": ["last 2 versions"]
-                   //        }
-                   //      }]
-                   //    ]
-                   // }
+                test: /\.jsx?$/,
+                loader: 'babel-loader',
             },
             {
                 test: /\.scss$/,
