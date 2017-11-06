@@ -1,7 +1,7 @@
 # demo
 
-#run server
+#to run server:
 npm start
 
-#run test
+#to run testcases:
 npm test
